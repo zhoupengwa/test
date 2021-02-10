@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rupai.demo.mapper.UserMapper">
+
+
+    <insert id="insert">
+        insert into user (username, age, home_address)
+        values (#{user.username},
+                #{user.age},
+                #{user.homeAddress})
+    </insert>
+
+
+    <select id="selectById" resultType="com.rupai.demo.model.User">
+        select id, username, age, home_address
+        from user
+        where id = #{userId}
+    </select>
+
+    <delete id="deleteUserById">
+        delete
+        from user
+        where id = #{userId}
+    </delete>
+
+</mapper>
